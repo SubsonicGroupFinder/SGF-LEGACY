@@ -18,7 +18,7 @@ This project is a group project, though it was started by SS-git-dev.
   * Fun
   
 ## Tech Stack
-  * PHP Laravel for the back end
+  * Python3 Django for the back end
   * React, HTML, CSS, JS for the front end
   * Database - undecided
   * server - undecided
