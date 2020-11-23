@@ -19,7 +19,8 @@
 - close the issue assigned with it
 
 
-### If you need help, or have quetions
-- add the "questions" label
+### If you need help, or have quetions: CREATE AN ISSUE
+- create an issue in the repo
+- add the "questions" label, along with all the other relavent tags
 - post the issue link in the "project-issue-help" channel of the discord with a small summary of what you're stuck on specifically
 - if this is an urgent issue, tag the team to get everyone's attention
