@@ -23,4 +23,25 @@ This project is a group project, though it was started by SS-git-dev.
   * Database - undecided
   * server - undecided
   
+## Dev Environement
+  * make sure that you have python3 installed
+  * as well as react, node, and npm
+  * the virtual environment for the backend is handled with pipenv
+  * so do some version of ```sudo apt-get install pipenv```
+  * clone the repo
+  * ```cd SGI-web-app```
+  * ```cd backend/```
+  * ```pipenv install```
+  * ```pipenv shell```
+  * ```cd webapp_api```
+  * ```python3 manage.py runserver```
+  * ```cd ../..```
+  * ```cd frontend```
+  * ```npm install```
+  * ```npm start```
+
+This should start both of the servers that you need to have going. The backend will be on localhost:8000 and the frontend will be on localhost:3000. The back is only an api.
+
+This is just a start to get the environment set up, meaning that the only react files are for "App" App.js is the file that has been edited.
+
 
