@@ -40,6 +40,11 @@ This project is a group project, though it was started by SS-git-dev.
   * ```npm install```
   * ```npm start```
 
+---
+***Note***: you may have to do some migrations stuff for django to get the things working
+---
+
+
 This should start both of the servers that you need to have going. The backend will be on localhost:8000 and the frontend will be on localhost:3000. The back is only an api.
 
 This is just a start to get the environment set up, meaning that the only react files are for "App" App.js is the file that has been edited.
