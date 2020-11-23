@@ -18,7 +18,8 @@ This project is a group project, though it was started by SS-git-dev.
   * Fun
   
 ## Tech Stack
-  * Python3 Django for the back end
+  * Python3 Django for the backend
+  ** All apps in django are api's there are no templates
   * React, HTML, CSS, JS for the front end
   * Database - undecided
   * server - undecided
@@ -40,9 +41,7 @@ This project is a group project, though it was started by SS-git-dev.
   * ```npm install```
   * ```npm start```
 
----
-***Note***: you may have to do some migrations stuff for django to get the things working
----
+**Note**: you may have to do some migrations stuff for django to get the things working
 
 
 This should start both of the servers that you need to have going. The backend will be on localhost:8000 and the frontend will be on localhost:3000. The back is only an api.
