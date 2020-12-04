@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     
     # apps
     'posts',
+    'users',
 
     # others
     'rest_framework',
