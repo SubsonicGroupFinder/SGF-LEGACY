@@ -21,8 +21,8 @@ This project is a group project, though it was started by SS-git-dev.
   * Python3 Django for the backend
   ** All apps in django are api's there are no templates
   * React, HTML, CSS, JS for the front end
-  * Database - undecided
-  * server - undecided
+  * Database - SQL/mySQL
+  * server - cpanel/goDaddy
   
 ## Dev Environement
   * make sure that you have python3 installed
