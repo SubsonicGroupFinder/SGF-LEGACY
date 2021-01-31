@@ -16,8 +16,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+
+from users import views
+from django.conf.urls import url
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
+from rest_framework_jwt.views import refresh_jwt_token
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('posts/', include('posts.urls')),
     path('users/', include('users.urls')),
+    path('posts/', include('posts.urls')),
+    url(r'^rest-auth/', include('rest_auth.urls')),
+    url(r'^rest-auth/register/', include('rest_auth.registration.urls')),
 ]
