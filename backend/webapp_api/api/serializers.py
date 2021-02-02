@@ -42,17 +42,6 @@ class LoginSerializer(serializers.ModelSerializer):
 
         return user
 
-    def _validate_username(self, username, password):
-        user = None
-
-        if username and password:
-            user = self.authenticate(username=username, password=password)
-        else:
-            msg = _('Must include either "username" or "email" and "password".')
-            raise exceptions.ValidationError(msg)
-
-        return user
-
     def validate(self, attrs):
         username = attrs.get('username')
         password = attrs.get('password')
