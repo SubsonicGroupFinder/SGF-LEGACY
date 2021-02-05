@@ -62,8 +62,8 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser):
-    first_name          = models.CharField(max_length=120, blank = True, null = True)
-    last_name           = models.CharField(max_length=120)
+    first_name          = models.CharField(max_length=120, null = False)
+    last_name           = models.CharField(max_length=120, null = False)
     username            = models.CharField(max_length=120, unique=True)
     USERNAME_FIELD      = 'username' #set username
     timestamp           = models.DateTimeField(auto_now_add=True)
@@ -99,6 +99,20 @@ class User(AbstractBaseUser):
         "Does the user have permissions to view the app `app_label`?"
         # Simplest possible answer: Yes, always
         return True
+
+    def _generate_jwt_token(self):
+        """
+        Generates a JSON Web Token that stores this user's ID and has an expiry
+        date set to 60 days into the future.
+        """
+        dt = datetime.now() + timedelta(days=60)
+
+        token = jwt.encode({
+            'id': self.pk,
+            'exp': int(dt.strftime('%s'))
+        }, settings.SECRET_KEY, algorithm='HS256')
+
+        return token.decode('utf-8')
 
     @property
     def is_staff(self):
