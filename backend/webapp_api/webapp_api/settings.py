@@ -54,28 +54,13 @@ INSTALLED_APPS = [
     'allauth.account',
 ]
 
-# for the rest framework
-REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES' : [
-        'rest_framework.permissions.AllowAny',
-    ]
-}
-AUTH_USER_MODEL = 'users.User'
 
+AUTH_USER_MODEL = 'users.User'
 ACCOUNT_AUTHENTICATION_METHOD = 'username'
 ACCOUNT_USERNAME_REQUIRED = True
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_EMAIL_VERIFICATION = 'none'
-
-
-AUTHENTICATION_BACKENDS = [
-    # allauth specific authentication methods, such as login by e-mail
-    'allauth.account.auth_backends.AuthenticationBackend',
-    
-    # Needed to login by username in Django admin, regardless of allauth
-    'django.contrib.auth.backends.ModelBackend',
-]
 
 
 SITE_ID = 1
@@ -180,6 +165,7 @@ JWT_AUTH = {
 # Overides Rest_Aauth Serializer Form
 REST_AUTH_SERIALIZERS = {
     'LOGIN_SERIALIZER':    'api.serializers.LoginSerializer',
+    'USER_DETAILS_SERIALIZER': 'api.serializers.CustomUserDetailsSerializer',
 }
 
 REST_AUTH_REGISTER_SERIALIZERS = {
@@ -187,17 +173,24 @@ REST_AUTH_REGISTER_SERIALIZERS = {
 }
 
 
-REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES' : [
-        'rest_framework.permissions.AllowAny',
-    ],
-
-    # Make JWT Auth the default authentication mechanism for Django
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.TokenAuthentication',
-    ),
-}
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': (
+#         'rest_framework_simplejwt.authentication.JWTTokenUserAuthentication',
+#     ),
+# }
 
     
 # Enables django-rest-auth to use JWT tokens instead of regular tokens.
 REST_USE_JWT = True
+JWT_AUTH_COOKIE = 'my-app-auth' # The cookie key name can be the one you want
+
+
+
+
+AUTHENTICATION_BACKENDS = [
+    # allauth specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+    
+    # Needed to login by username in Django admin, regardless of allauth
+    'django.contrib.auth.backends.ModelBackend',
+]
