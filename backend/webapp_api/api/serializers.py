@@ -95,3 +95,21 @@ class CustomRegisterSerializer(RegisterSerializer):
         
         user.save()
         return user
+
+class CustomUserDetailsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.User
+        fields = (
+            'username',
+            'email',
+            'first_name',
+            'last_name',
+            'last_login',
+            )
+
+        read_only_fields = ('last_login',)
+    
+    # first_name = serializers.CharField(required=True, allow_blank=False)
+    # last_name = serializers.CharField(required=True, allow_blank=False)
+    # password1 = serializers.CharField(style={'input_type': 'password'})
+    # password2 = serializers.CharField(style={'input_type': 'password'})

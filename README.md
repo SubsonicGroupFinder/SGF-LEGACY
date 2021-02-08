@@ -41,7 +41,25 @@ This project is a group project, though it was started by SS-git-dev.
   * ```npm install```
   * ```npm start```
 
+##Backend:
+  After you activate the enviornment and get there server running here are the endpoints we have at the current moment:
+  
+  http://127.0.0.1:8000/api/v1/custom/register/
+  http://127.0.0.1:8000/api/v1/custom/verify-email/ - Not Valid Yet
+
+  http://127.0.0.1:8000/api/v1/custom/user/
+  http://127.0.0.1:8000/api/v1/custom/login/
+  http://127.0.0.1:8000/api/v1/custom/logout/
+  
+
+  http://127.0.0.1:8000/api/v1/custom/password/reset/ - Not Valid Yet
+  http://127.0.0.1:8000/api/v1/custom/password/reset/confirm/ -Not Valid Yet
+  http://127.0.0.1:8000/api/v1/custom/password/reset/change/
+
 **Note**: you may have to do some migrations stuff for django to get the things working
+
+If things get weird don't be afraid to delete the migration in users and the sqlite db.  *** This is fine for now but once we get rolling do not touch the migrations***
+
 
 
 This should start both of the servers that you need to have going. The backend will be on localhost:8000 and the frontend will be on localhost:3000. The back is only an api.

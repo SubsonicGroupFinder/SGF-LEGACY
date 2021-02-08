@@ -17,11 +17,6 @@ from django.contrib import admin
 from django.urls import path, include
 from users import views
 from django.conf.urls import url
-from rest_framework_simplejwt.views import (
-    TokenObtainPairView,
-    TokenRefreshView,
-)
-from rest_framework_jwt.views import refresh_jwt_token
 
 
 urlpatterns = [
