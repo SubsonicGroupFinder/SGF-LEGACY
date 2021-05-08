@@ -10,13 +10,15 @@ class LoginForm extends React.Component {
     pk: 0,
     title: "",
     body: "",
-    tags: ""
+    tags: "",
+    platform: "",
+    game: ""
   };
 
   componentDidMount() {
-    if (this.props.student) {
-      const { pk, title, body, tags } = this.props.state;
-      this.setState({ pk, title, body, tags });
+    if (this.props.user) {
+      const { pk, title, body, tags, platform, game } = this.props.state;
+      this.setState({ pk, title, body, tags, platform, game });
     }
   }
 
@@ -46,6 +48,24 @@ class LoginForm extends React.Component {
             name="user_name"
             onChange={this.onChange}
             value={this.defaultIfEmpty(this.state.title)}
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label for="game">Game:</Label>
+          <Input
+            type="text"
+            name="game"
+            onChange={this.onChange}
+            value={this.defaultIfEmpty(this.state.game)}
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label for="platform">Platform:</Label>
+          <Input
+            type="text"
+            name="platform"
+            onChange={this.onChange}
+            value={this.defaultIfEmpty(this.state.platform)}
           />
         </FormGroup>
         <FormGroup>
