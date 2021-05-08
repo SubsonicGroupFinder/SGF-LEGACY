@@ -30,7 +30,7 @@ This project is a group project, though it was started by SS-git-dev.
   * the virtual environment for the backend is handled with pipenv
   * so do some version of ```sudo apt-get install pipenv```
   * clone the repo
-  * ```cd SGI-web-app```
+  * ```cd SGF-web-app```
   * ```cd backend/```
   * ```pipenv install```
   * ```pipenv shell```
