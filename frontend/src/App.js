@@ -25,7 +25,11 @@ function App() {
 export default App;
 */
 
-import React, { Component } from 'react';
+import React, { Component, Fragment } from "react";
+import Header from "./components/Header";
+import Home from "./components/Home";
+
+import { API_URL } from "./constants/index";
 
 class App extends Component {
     state = {
@@ -33,28 +37,24 @@ class App extends Component {
   };
 
   async componentDidMount() {
-    try {
-      const res = await fetch('http://127.0.0.1:8000/api/');
-      const posts = await res.json();
-console.log(posts);
-      this.setState({
-        posts
-      });
-    } catch (e) {
-      console.log(e);
-    }
+    // try {
+    //   const res = await fetch(API_URL);
+    //   const posts = await res.json();
+    //   console.log(posts);
+    //   this.setState({
+    //     posts
+    //   });
+    // } catch (e) {
+    //   console.log(e);
+    // }
   }
 
   render() {
     return (
-      <div>
-        {this.state.posts.map(item => (
-          <div key={item.id}>
-            <h1>{item.title}</h1>
-            <span>{item.description}</span>
-          </div>
-        ))}
-      </div>
+      <Fragment>
+        <Header />
+        <Home />
+      </Fragment>
     );
   }
 }

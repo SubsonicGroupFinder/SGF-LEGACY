@@ -5,9 +5,68 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: rgb(58, 58, 58);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid white;
+  color: white;
+}
+
+.header > .header_text {
+  margin-left: 2%;
+}
+
+.top_menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  list-style-type: none;
+  width: 40%;
+  justify-content: space-evenly;
+  margin-top: 15px;
+}
+
+.action_btns {
+  display: flex;
+  justify-content: space-evenly;
+  width: 15%;
+  text-decoration: underline;
+}
+
+.action_btns > button {
+  background-color: unset;
+  border: none;
+}
+
+.container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.container > .new_post > .start_new_post {
+  float: right;
+}
+
+.container > .post_list {
+  color: white;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-self: center;
+}
+
+.no_posts {
+  text-align: center;
 }
