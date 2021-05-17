@@ -8,6 +8,7 @@ This project is a group project, though it was started by Subsonic-dev.
   * LFG- Looking for Group
   * 2FA- 2 factor authentication
   * SEO- Search Engine optimization
+  * SGF- Subsonic Group Finder
 
 ## Goals
   * Clean, sustainable, code that can be passed on to the next person
