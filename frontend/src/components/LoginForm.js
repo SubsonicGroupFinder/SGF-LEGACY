@@ -20,7 +20,16 @@ class LoginForm extends React.Component {
   }
 
   onChange = e => {
-    this.setState({ [e.target.username]: e.target.value });
+    if(e.target.name === "user_name"){
+      this.setState({
+        username: e.target.value
+      })
+    } 
+    if (e.target.name === "password") {
+      this.setState({
+        password:e.target.value
+      })
+    }
   };
 
   loginUser = e => {
@@ -40,19 +49,21 @@ class LoginForm extends React.Component {
       <Form onSubmit={this.loginUser}>
           <FormGroup>
           <Label for="user_name">Username:</Label>
-          <Input
+          <Input 
             type="text"
             name="user_name"
-            onChange={this.onChange}
+            required
             value={this.defaultIfEmpty(this.state.username)}
-          />
+            onChange={this.onChange}
+          ></Input>
         </FormGroup>
         <FormGroup>
           <Label for="password">Password:</Label>
-          <Input
+          
+          <Input 
             type="password"
             name="password"
-            onChange={this.onChange}
+            onChange={this.onChange} required 
             value={this.defaultIfEmpty(this.state.password)}
           />
         </FormGroup>
