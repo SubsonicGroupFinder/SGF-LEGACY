@@ -24,7 +24,20 @@ class NewUserForm extends React.Component {
   }
 
   onChange = e => {
-    this.setState({ [e.target.username]: e.target.value });
+    // this.setState({ [e.target.username]: e.target.value });
+    if ( e.target.name === "user_name")
+      this.setState({ username: e.target.value})
+    if ( e.target.name === "first_name")
+      this.setState({ first_name: e.target.value})
+    if ( e.target.name === "last_name")
+      this.setState({ last_name: e.target.value})
+    if ( e.target.name === "email")
+      this.setState({ email: e.target.value})
+    if ( e.target.name === "password")
+      this.setState({ password1: e.target.value})
+    if ( e.target.name === "confirm_password")
+      this.setState({ password2: e.target.value})
+    
   };
 
   createUser = e => {
