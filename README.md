@@ -22,7 +22,6 @@ This project is a group project, though it was started by Subsonic-dev.
   ** All apps in django are api's there are no templates
   * React, HTML, CSS, JS for the front end
   * Database - SQL/mySQL
-  * server - cpanel/goDaddy
   
 ## Dev Environement
   * make sure that you have python3 installed
