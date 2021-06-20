@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
-import datetime
+import datetime, os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -60,8 +60,20 @@ ACCOUNT_AUTHENTICATION_METHOD = 'username'
 ACCOUNT_USERNAME_REQUIRED = True
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
-ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_CONFIRM_EMAIL_ON_GET = True
 
+#To send PEmails.
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = os.getenv("HOST_EMAIL_USERNAME_VAR")
+EMAIL_HOST_PASSWORD = os.getenv("HOST_EMAIL_PASSWORD_VAR")
+DEFAULT_FROM_EMAIL = "SGF Team"
+
+
+LOGIN_URL = 'http://127.0.0.1:8000/api/v1/custom/login'
 
 SITE_ID = 1
 
@@ -90,7 +102,7 @@ ROOT_URLCONF = 'webapp_api.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'webapp_api/templates'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -115,7 +127,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
+DEFAULT_AUTO_FIELD='django.db.models.AutoField' 
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -172,19 +184,10 @@ REST_AUTH_REGISTER_SERIALIZERS = {
     'REGISTER_SERIALIZER': 'api.serializers.CustomRegisterSerializer',
 }
 
-
-# REST_FRAMEWORK = {
-#     'DEFAULT_AUTHENTICATION_CLASSES': (
-#         'rest_framework_simplejwt.authentication.JWTTokenUserAuthentication',
-#     ),
-# }
-
-    
+   
 # Enables django-rest-auth to use JWT tokens instead of regular tokens.
 REST_USE_JWT = True
 JWT_AUTH_COOKIE = 'my-app-auth' # The cookie key name can be the one you want
-
-
 
 
 AUTHENTICATION_BACKENDS = [
