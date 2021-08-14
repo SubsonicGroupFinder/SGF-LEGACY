@@ -1,15 +1,10 @@
 # api/serializers.py
 from users import *
 from rest_framework import serializers, exceptions
-from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth import get_user_model, authenticate
 from django.conf import settings
-from django.contrib.auth.forms import PasswordResetForm, SetPasswordForm
 from django.utils.http import urlsafe_base64_decode as uid_decoder
-from django.utils.encoding import force_text
-from rest_framework.exceptions import ValidationError
 from rest_auth.registration.serializers import RegisterSerializer
-from rest_auth.serializers import JWTSerializer
 from django.db import transaction
 
 

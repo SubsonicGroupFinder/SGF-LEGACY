@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from rest_auth.views import LoginView, UserDetailsView
 from rest_auth.registration.views import RegisterView, VerifyEmailView, ConfirmEmailView
-from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
+from rest_auth.views import PasswordResetConfirmView, PasswordResetView
+from users.forms import ResetPasswordForm
 
 
 #Overriding Login View
@@ -45,6 +46,9 @@ class CustomConfirmEmailView(ConfirmEmailView):
         mydata = {"message": "Email Verified", "status": "success"}
         orginal_response.data.update(mydata)
         return orginal_response
+
+class CustomPasswordResetView(PasswordResetView):
+    form_class = ResetPasswordForm
          
 
     

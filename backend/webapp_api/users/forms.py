@@ -2,6 +2,7 @@
 from django import forms
 from .models import User
 from django.contrib.auth.forms import ReadOnlyPasswordHashField, UserCreationForm, UserChangeForm
+from allauth.account.forms import ResetPasswordForm
 
 
 class RegisterForm(forms.ModelForm):
@@ -74,12 +75,10 @@ class UserAdminChangeForm(forms.ModelForm):
         # field does not have access to the initial value
         return self.initial["password"]
 
-
-##add later
-
-# class RegisterForm(forms.Form):
-#     pass
-
-
+class PasswordResetForm(ResetPasswordForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['email'].label = ""
+        self.fields['email'].widget = forms.EmailInput(attrs={"placeholder": "Email Address"})
 
 
