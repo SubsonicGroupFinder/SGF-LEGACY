@@ -4,3 +4,6 @@ frontend/node_modules/
 *.sqlite3
 *.env
 backend/webapp_api/db.sqlite3
+backend/webapp_api/Pipfile.lock
+Pipfile.lock
+*.lock
