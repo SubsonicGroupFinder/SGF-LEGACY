@@ -3,3 +3,4 @@ frontend/node_modules/
 *.idea
 *.sqlite3
 *.env
+backend/webapp_api/db.sqlite3
