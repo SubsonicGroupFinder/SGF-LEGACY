@@ -2,3 +2,8 @@ frontend/node_modules/
 /workspace.xml
 *.idea
 *.sqlite3
+*.env
+backend/webapp_api/db.sqlite3
+backend/webapp_api/Pipfile.lock
+Pipfile.lock
+*.lock
