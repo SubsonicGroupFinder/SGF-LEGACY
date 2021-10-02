@@ -1,0 +1,121 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.",
+    "version": "1.0.5",
+    "title": "SGF WEB APP",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": { "email": "" },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "127.0.0.1:3000",
+  "basePath": "/v2",
+  "tags": [
+    {
+      "name": "register",
+      "description": "Register a new user",
+      "externalDocs": {
+        "description": "",
+        "url": "http://127.0.0.1:8000/api/v1/custom/register/"
+      }
+    },
+    {
+      "name": "user",
+      "description": "Fetching user's information",
+      "externalDocs": {
+        "description": "To verify user's information",
+        "url": "http://127.0.0.1:8000/api/v1/custom/user/"
+      }
+    },
+    {
+      "name": "userLogin",
+      "description": "Allows an user to login based on the credentials",
+      "externalDocs": {
+        "description": "Allow or deny the user to login based on the credentials entered",
+        "url": "http://127.0.0.1:8000/api/v1/custom/login/"
+      }
+    }
+  ],
+  "schemes": ["https", "http"],
+  "paths": {
+    "/api/v1/custom/user/": {
+      "post": {
+        "tags": ["user"],
+        "summary": "User's information",
+        "description": "",
+        "operationId": "User's information",
+
+        "parameters": [
+          {
+            "name": "user",
+            "in": "user",
+            "description": "User's information",
+            "required": true,
+            "type": "",
+            "format": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": { "$ref": "#/definitions/ApiResponse" }
+          }
+        }
+      }
+    },
+    "/api/v1/custom/login/": {
+      "post": {
+        "tags": ["user", "login"],
+        "summary": "User Login",
+        "description": "Login API",
+        "operationId": "User's id and password",
+
+        "parameters": [
+          {
+            "name": "user",
+            "in": "user",
+            "description": "User's information",
+            "required": true,
+            "type": "",
+            "format": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": { "$ref": "#/definitions/ApiResponse" }
+          }
+        },
+        "security": [{ "petstore_auth": ["write:pets", "read:pets"] }]
+      }
+    },
+    "/api/v1/custom/register/": {
+      "post": {
+        "tags": ["user", "register"],
+        "summary": "User Login",
+        "description": "Login API",
+        "operationId": "User's id and password",
+
+        "parameters": [
+          {
+            "name": "user",
+            "in": "user",
+            "description": "User Registration",
+            "required": true,
+            "type": "",
+            "format": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": { "$ref": "#/definitions/ApiResponse" }
+          }
+        }
+      }
+    }
+  }
+}
