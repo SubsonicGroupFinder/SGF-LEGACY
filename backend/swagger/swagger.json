@@ -23,17 +23,25 @@
       }
     },
     {
-      "name": "Verify-Email",
-      "description": "Verifying an user",
+      "name": "user",
+      "description": "Fetching user's information",
       "externalDocs": {
-        "description": "To verify a single user email adress",
-        "url": "http://127.0.0.1:8000/api/v1/custom/verify-email/"
+        "description": "To verify user's information",
+        "url": "http://127.0.0.1:8000/api/v1/custom/user/"
+      }
+    },
+    {
+      "name": "userLogin",
+      "description": "Allows an user to login based on the credentials",
+      "externalDocs": {
+        "description": "Allow or deny the user to login based on the credentials entered",
+        "url": "http://127.0.0.1:8000/api/v1/custom/login/"
       }
     }
   ],
   "schemes": ["https", "http"],
   "paths": {
-    "/api/v1/custom/user": {
+    "/api/v1/custom/user/": {
       "post": {
         "tags": ["user"],
         "summary": "User's information",
@@ -55,70 +63,57 @@
             "description": "successful operation",
             "schema": { "$ref": "#/definitions/ApiResponse" }
           }
-        },
-        "security": [{ "petstore_auth": ["write:pets", "read:pets"] }]
-      }
-    },
-    "/api/v1/custom/password/reset/": {
-      "post": {
-        "tags": ["password"],
-        "summary": "Reset Password",
-        "description": "",
-        "operationId": "resetPassword",
-        "consumes": ["application/json", "application/xml"],
-        "produces": ["application/json", "application/xml"],
-
-        "responses": { "405": { "description": "Invalid Email" } }
-      },
-      "Post": {
-        "tags": ["reset", "password"],
-        "summary": "Reset user password",
-        "description": "",
-        "operationId": "reset",
-        "consumes": ["application/json", "application/xml"],
-        "produces": ["application/json", "application/xml"],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "description": "Reset user password",
-            "required": true
-          }
-        ],
-        "responses": {
-          "400": { "description": "Invalid email address provided" },
-          "405": { "description": "Validation exception" }
         }
       }
     },
-    "/api/v1/custom/password/reset/confirm": {
-      "get": {
-        "tags": ["reset", "password", "confirm"],
-        "summary": "Reset Password Confirm",
-        "description": "A confirmation while resetting the password",
+    "/api/v1/custom/login/": {
+      "post": {
+        "tags": ["user", "login"],
+        "summary": "User Login",
+        "description": "Login API",
+        "operationId": "User's id and password",
 
-        "produces": ["application/json", "application/xml"],
         "parameters": [
           {
-            "name": "status",
-            "in": "query",
-            "description": "Status values that need to be considered for filter",
+            "name": "user",
+            "in": "user",
+            "description": "User's information",
             "required": true,
-            "type": "JSON Body",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "multi"
+            "type": "",
+            "format": ""
           }
         ],
         "responses": {
           "200": {
             "description": "successful operation",
-            "schema": {
-              "type": "JSON Body"
-            }
-          },
-          "400": { "description": "Invalid status value" }
+            "schema": { "$ref": "#/definitions/ApiResponse" }
+          }
+        },
+        "security": [{ "petstore_auth": ["write:pets", "read:pets"] }]
+      }
+    },
+    "/api/v1/custom/register/": {
+      "post": {
+        "tags": ["user", "register"],
+        "summary": "User Login",
+        "description": "Login API",
+        "operationId": "User's id and password",
+
+        "parameters": [
+          {
+            "name": "user",
+            "in": "user",
+            "description": "User Registration",
+            "required": true,
+            "type": "",
+            "format": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": { "$ref": "#/definitions/ApiResponse" }
+          }
         }
       }
     }
