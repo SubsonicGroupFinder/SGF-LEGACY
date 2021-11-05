@@ -9,8 +9,27 @@ class PostCreation(forms.ModelForm):
     class Meta:
         model = User
         fields = ('title', 'description', 'createdOn', 'lastEdited', 'game', 'platform', 'body', 'tags')
-    
-    class clean_title(self):
-        title = self.cleaned_data.get('title')
         
+        def clean_title(self):
+            title = self.cleaned_data['title']
+            return title
         
+        def clean_description(self):
+            description = self.cleaned_data['description']
+            return description
+        
+        def clean_platform(self):
+            platform = self.cleaned_data['platform']
+            return platform
+
+        def clean_game(self):
+            game = self.cleaned_data['game']
+            return game
+        
+        def clean_body(self):
+            body = self.cleaned_data['body']
+            return body
+        
+        def clean_tags(self):
+            tags = self.cleaned_data['tags']
+            return tags

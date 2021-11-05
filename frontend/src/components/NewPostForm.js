@@ -23,7 +23,38 @@ class LoginForm extends React.Component {
   }
 
   onChange = e => {
-    this.setState({ [e.target.title]: e.target.value });
+    // this.setState({ [e.target.title]: e.target.value });
+    if (e.target.name === "user_name"){
+      this.setState({
+        title: e.target.value
+      })
+    }
+
+    if (e.target.name === "game"){
+      this.setState({
+        game: e.target.value
+      })
+    }
+
+    if (e.target.name === "platform"){
+      this.setState({
+        platform: e.target.value
+      })
+    }
+
+    if (e.target.name === "body"){
+      this.setState({
+        body: e.target.value
+      })
+    }
+
+    if (e.target.name === "tags"){
+      this.setState({
+        tags: e.target.value
+      })
+    }
+
+
   };
 
   sendPost = e => {

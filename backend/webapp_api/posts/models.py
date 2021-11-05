@@ -14,7 +14,7 @@ class Post(models.Model):
     author = models.TextField()
     # author needs to be added
     class Meta:
-        model = Post
+        ordering = ['-createdOn']  # newest posts first
         fields = ('title','description','created_on',
                   'last_edited','game','platform','body',
                   'tags', 'author')

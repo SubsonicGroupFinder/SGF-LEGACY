@@ -18,6 +18,7 @@ class Home extends Component {
   }
 
   getPosts = () => {
+    console.log(`Get Posts`)
     axios.get(API_URL+'getPosts/').then(res => this.setState({ posts: res.data })).catch(function (error) {
         if (error.response) {
           // Request made and server responded
