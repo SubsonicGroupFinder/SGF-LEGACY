@@ -1,6 +1,6 @@
 from django.db import models
-from django.forms import fields
 
+from django.forms import fields, widgets
 # Create your models here.
 class Post(models.Model):
     title = models.CharField(max_length=200)
@@ -15,9 +15,9 @@ class Post(models.Model):
     # author needs to be added
     class Meta:
         ordering = ['-createdOn']  # newest posts first
-        fields = ('title','description','created_on',
-                  'last_edited','game','platform','body',
-                  'tags', 'author')
+    def __str__(self):
+        return self.description
+    
         
     def create_post (self, title, description, created_on, 
                      last_edited, game, platform,
