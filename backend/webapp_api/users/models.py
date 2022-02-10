@@ -59,8 +59,6 @@ class UserManager(BaseUserManager):
         )
         return user
 
-
-
 class User(AbstractBaseUser):
     first_name          = models.CharField(max_length=120, null = False)
     last_name           = models.CharField(max_length=120, null = False)
